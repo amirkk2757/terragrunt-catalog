@@ -276,8 +276,7 @@ module "eks_blueprints_addons" {
 ################################################################################
 #tfsec:ignore:aws-eks-enable-control-plane-logging
 module "eks" {
-  source  = "terraform-aws-modules/eks/aws"
-  version = "~> 20.36.0"
+  source    = "git::https://github.com/amirkk2757/terragrunt-catalog.git//modules/terraform-aws-eks?ref=main"
 
   cluster_name                   = local.name
   cluster_version                = local.cluster_version
@@ -404,8 +403,7 @@ module "eks" {
 # Supporting Resources
 ################################################################################
 module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 5.0"
+  source  = "git::https://github.com/amirkk2757/terragrunt-catalog.git//modules/terraform-aws-vpc?ref=main"
 
   name = local.name
   cidr = local.vpc_cidr
