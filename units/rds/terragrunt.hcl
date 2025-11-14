@@ -17,7 +17,7 @@ terraform {
 inputs = {
   identifier                           = values.identifier
   engine                               = "mysql"
-  engine_version                       = "5.7"
+  engine_version                       = "8.4.4"
   instance_class                       = values.instance_class
   allocated_storage                    = 5
   db_name                              = values.db_name
