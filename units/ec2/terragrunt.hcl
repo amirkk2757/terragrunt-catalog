@@ -16,11 +16,11 @@ terraform {
 
 inputs = {
   # Required inputs
-  name          = value.name
-  instance_type = value.instance_type
-  key_name      = value.key_name
-  monitoring    = value.monitoring
-  subnet_id     = value.subnet_id
+  name          = values.name
+  instance_type = values.instance_type
+  key_name      = values.key_name
+  monitoring    = values.monitoring
+  subnet_id     = values.subnet_id
   tags = {
     Terraform   = "true"
   }
