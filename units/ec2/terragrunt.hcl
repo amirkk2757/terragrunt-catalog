@@ -23,7 +23,7 @@ terraform {
 
 inputs = {
   # Required inputs
-  name          = join("-", [values.identifier, local.tenant_name, local.tenant_site])
+  name          = join("-", [values.name, local.tenant_name, local.tenant_site])
   instance_type = values.instance_type
   key_name      = values.key_name
   monitoring    = values.monitoring
