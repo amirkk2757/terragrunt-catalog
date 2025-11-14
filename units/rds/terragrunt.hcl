@@ -11,7 +11,7 @@ terraform {
   //
   // Assume that a user consuming this unit will exclusively have access
   // to the directory this file is in, and nothing else in this repository.
-  source = "git::https://github.com/amirkk2757/terragrunt-catalog.git//modules/terraform-aws-rds/modules/db_instance?ref=rds"
+  source = "git::https://github.com/amirkk2757/terragrunt-catalog.git//modules/terraform-aws-rds/modules/db_instance?ref=main"
 }
 
 inputs = {
