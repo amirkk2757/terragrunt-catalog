@@ -31,8 +31,8 @@ inputs = {
 
   create_db_subnet_group              = true
   subnet_ids                          = values.subnet_ids
-  family                              = "mysql5.7"
-  major_engine_version                = "5.7"
+  family                              = "mysql8.0"
+  major_engine_version                = "8.0"
   deletion_protection                 = true
 
 }
