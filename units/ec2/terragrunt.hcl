@@ -28,6 +28,7 @@ inputs = {
   key_name      = values.key_name
   monitoring    = values.monitoring
   subnet_id     = values.subnet_id
+  security_group_ingress_rules = values.security_group_ingress_rules
   tags = {
     Terraform   = "true"
   }
