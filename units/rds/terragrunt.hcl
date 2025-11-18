@@ -22,6 +22,11 @@ terraform {
   source = "git::https://github.com/amirkk2757/terragrunt-catalog.git//modules/terraform-aws-rds/modules/db_instance?ref=main"
 }
 
+dependency "ec2_sg" {
+  config_path = values.ec2_path
+
+}
+
 inputs = {
   identifier                           = join("-", [values.identifier, local.tenant_name, local.tenant_site])
   engine                               = "mysql"
@@ -32,7 +37,7 @@ inputs = {
   username                             = values.username
   port                                 = "3306"
   iam_database_authentication_enabled  = true
-  vpc_security_group_ids               = values.vpc_security_group_ids
+  vpc_security_group_ids               = dependency.ec2_sg.outputs.security_group_id
   tags = {
     Owner       = "user"
   }
