@@ -37,7 +37,7 @@ inputs = {
   username                             = values.username
   port                                 = "3306"
   iam_database_authentication_enabled  = true
-  vpc_security_group_ids               = dependency.ec2_sg.outputs.security_group_id
+  vpc_security_group_ids               = [dependency.ec2_sg.outputs.security_group_id]
   tags = {
     Owner       = "user"
   }
