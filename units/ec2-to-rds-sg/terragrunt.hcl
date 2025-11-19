@@ -34,7 +34,7 @@ inputs = {
   ingress_with_source_security_group_id = [
     {
       from_port                = 3306
-      to_port                  = 3305
+      to_port                  = 3306
       protocol                 = 6
       description              = "Service name"
       source_security_group_id = dependency.ec2_sg.outputs.security_group_id
