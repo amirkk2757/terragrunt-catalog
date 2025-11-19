@@ -2,6 +2,15 @@ include "root" {
   path = find_in_parent_folders("root.hcl")
 }
 
+locals {
+  # Automatically load account-level variables
+  tenant_config = read_terragrunt_config(find_in_parent_folders("tenant.hcl"))
+  env_config = read_terragrunt_config(find_in_parent_folders("env.hcl"))
+  env_name   = local.env_config.locals.environment_name
+  tenant_name   = local.tenant_config.locals.tenant_name
+  tenant_site   = local.tenant_config.locals.tenant_site
+}
+
 terraform {
   // NOTE: Take note that this source here uses
   // a Git URL instead of a local path.
@@ -18,7 +27,7 @@ inputs = {
   # Required inputs
   vpc_cidr           = values.vpc_cidr
   kubernetes_version = values.kubernetes_version
-  tenant_name        = values.tenant_name
-  environment_name   = values.environment_name
+  tenant_name        = local.tenant_name
+  environment_name   = local.env_name
 
 }
