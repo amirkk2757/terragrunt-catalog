@@ -9,6 +9,11 @@ locals {
   tenant_site   = local.tenant_config.locals.tenant_site
 }
 
+dependency "ec2_sg" {
+  config_path = values.ec2_path
+
+}
+
 terraform {
   // NOTE: Take note that this source here uses
   // a Git URL instead of a local path.
@@ -32,8 +37,9 @@ inputs = {
       to_port                  = 3305
       protocol                 = 6
       description              = "Service name"
-      source_security_group_id = values.source_security_group_id
-    },
+      source_security_group_id = dependency.ec2_sg.outputs.security_group_id
+
+    }
   ]
   tags = {
     Terraform   = "true"
